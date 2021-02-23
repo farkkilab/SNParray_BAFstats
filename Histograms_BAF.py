@@ -2,10 +2,13 @@ import sys
 import numpy as np
 from optparse import OptionParser
 
+dirsep="/"
+
 #Defining input arguments
-parser = OptionParser() 
+parser = OptionParser()
+
   
-# ass options 
+#Add options 
 parser.add_option("-i", "--input", 
                   dest = "inputfile", 
                   help = "Input file with LogR and BAF values per sample") 
@@ -19,13 +22,11 @@ if (options.inputfile == None):
         print (parser.usage) 
         exit(0)
 
-#Selecting input file
-#file = "Full_Data_Table_subset.txt"
 
 #Reading input and creating output files
 input_file = open(options.inputfile, "r")
-output_BAFfile = open(options.outdir + "BAFhistograms.txt", "w+")
-output_logRfile = open(options.outdir + "logRstats.txt", "w+")
+output_BAFfile = open(options.outdir + dirsep + "BAFhistograms.txt", "w+")
+output_logRfile = open(options.outdir + dirsep + "logRstats.txt", "w+")
 
 
 count = 0 
