@@ -67,7 +67,7 @@ Options:
 
 You can use as example the `Example_input.txt` and run the script in the next way:
 
-`python3 -i Histograms_BAF.py -o example_output2`
+`python3 Histograms_BAF.py -i Example_input.txt -o example_output2`
 
 The files generated in example\_output2/ should be the same as in example\_output/
 
