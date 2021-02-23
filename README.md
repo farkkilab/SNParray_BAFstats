@@ -31,7 +31,7 @@ rs1566058       8       9626103 AC      0.4652651       -3.241315       AC      
 rs180981568     8       7011720 AC      0.02673887      -2.99316        AC      0.6640925       -5.381115
 ```
 
-It is necessary that the columns corresponding for each sample info, contain the strings: "GType", "B Allele Freq", "Log R Ratio"
+It is necessary that the columns corresponding for each sample info, contain the strings: "GType", "B Allele Freq", "Log R Ratio". You can find an example input file in this repository: `Example_input.txt`.
 
 ### How to generate input file
 
@@ -41,3 +41,33 @@ Here there is a tutorial about how to prepare a Genome Studio project: <https://
 
 Once that the project is setup and the call rates have been generated, next select the columns necessary for this script and export those in a text file. Here is a tutorial that describe how to select the columns: [link](http://penncnv.openbioinformatics.org/en/latest/user-guide/input/#preparing-input-signal-intensity-files-from-beadstudio-project-files)
 
+
+## The script execution
+
+### How to run it
+
+Once that you have generated the input file. Execute the script with the next comand:
+
+`python3 Histograms_BAF.py -i Inputfile.txt -o outputdirectory/`
+
+This is the corresponding usage for the script:
+
+```
+Usage: Histograms_BAF.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -i INPUTFILE, --input=INPUTFILE
+                        Input file with LogR and BAF values per sample
+  -o OUTDIR, --outputdir=OUTDIR
+                        Output directory
+```
+
+
+### Results
+
+Inside the outputdirectory that you selected during the script execution, you will find the files `BAFhistograms.txt` and `logRstats.txt`.
+
+- `logRstats.txt`: This file contain a line for each marker, the first three columns correspond to the probes info (name, chr, position) and the last columns to LogRatios mean, median, 1qt, 3qt and SD.
+
+- `BAFhistograms.txt`: This file contain a line for each marker, the first three columns correspond to the probes info (name, chr, position) and the last columns to the histogram of BAFs
